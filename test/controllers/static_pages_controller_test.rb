@@ -9,7 +9,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   # テストの内容は
   # Homeページのテスト。Getリクエストをhomeアクションに対して送れば、リクエストのレスポンスは200のはず。
   test "should get home" do
-    get static_pages_home_url
+    get root_url
     assert_response :success
     assert_select "title", "Home | #{@base_title}"
   end
