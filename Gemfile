@@ -64,5 +64,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'minitest', group: :test
 gem 'minitest-reporters', group: :test
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.2.0'
 
