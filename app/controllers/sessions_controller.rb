@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     # !! を使用することで強制的にtrue or falseを明示できる
     if !!(user && user.authenticate(params[:session][:password]))
-      # ログインに成功した際の処理を書く
+      log_in(user)
+      redirect_to user
     else
       flash.now[:danger] = "Invalid email/password combination"
       render 'new'
