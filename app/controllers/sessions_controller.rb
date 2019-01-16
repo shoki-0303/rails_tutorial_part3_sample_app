@@ -3,7 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    render 'new'
+    user = User.find_by(email: params[:session][:email].downcase)
+    # !! を使用することで強制的にtrue or falseを明示できる
+    if !!(user && user.authenticate(params[:session][:password]))
+      # ログインに成功した際の処理を書く
+    else
+      render 'new'
+    end
   end
 
   def destroy
