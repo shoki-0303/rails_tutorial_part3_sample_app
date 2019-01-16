@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if !!(user && user.authenticate(params[:session][:password]))
       # ログインに成功した際の処理を書く
     else
+      flash[:danger] = "Invalid email/password combination"
       render 'new'
     end
   end
